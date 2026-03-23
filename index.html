@@ -6,15 +6,32 @@
     <title>Салют Орто kz — Центр протезирования и ортопедии</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Добавляем библиотеку для анимаций -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .brand-accent { color: #5EB5E0; }
-        .bg-brand-accent { background-color: #5EB5E0; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
+        .brand-accent { color: #0284c7; }
+        .bg-brand-accent { background-color: #0284c7; }
         .bg-brand-soft { background-color: #f0f9ff; }
-        .text-brand-dark { color: #0369a1; }
+        .text-brand-dark { color: #075985; }
         .brand-logo-red { color: #E15A5A; }
-        .brand-logo-blue { color: #5EB5E0; }
+        .brand-logo-blue { color: #0284c7; }
+        
+        /* Плавные переходы для кнопок */
+        .btn-transition { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        /* Анимация парения для карточек с обводкой - толще и темнее */
+        .hover-float { transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); border: 3px solid transparent; }
+        .hover-float:hover { 
+            transform: translateY(-12px) scale(1.04); 
+            border-color: #0369a1;
+            box-shadow: 0 30px 40px -10px rgb(0 0 0 / 0.2); 
+        }
+
+        /* Градиент для фона секций */
+        .bg-gradient-soft { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); }
     </style>
 </head>
 <body class="min-h-screen bg-white text-slate-900">
@@ -36,7 +53,7 @@
             </a>
             
             <a href="https://wa.me/77710148802" target="_blank" rel="noopener noreferrer"
-               class="hidden md:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full font-medium transition-all transform hover:scale-105 active:scale-95 shadow-lg shadow-green-200">
+               class="hidden md:flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full font-medium btn-transition transform hover:scale-105 active:scale-95 shadow-lg shadow-green-200">
                 <i data-lucide="message-circle" class="w-5 h-5"></i>
                 Связаться в WhatsApp
             </a>
@@ -48,9 +65,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-4">
+    <section class="pt-40 pb-20 px-4 overflow-hidden">
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div data-aos="fade-right" data-aos-duration="1000">
                 <span class="inline-block py-1 px-3 rounded-full bg-brand-soft text-brand-dark text-sm font-bold mb-6">
                     Работаем с 2018 года
                 </span>
@@ -62,18 +79,18 @@
                     Протезирование конечностей и высокотехнологичная реабилитация. Улучшаем качество жизни более 5 лет.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#consultation" class="bg-brand-accent hover:bg-sky-600 text-white px-8 py-4 rounded-xl font-bold text-center transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-2">
+                    <a href="#consultation" class="bg-brand-accent hover:bg-sky-600 text-white px-8 py-4 rounded-xl font-bold text-center btn-transition shadow-xl shadow-blue-100 flex items-center justify-center gap-2">
                         Бесплатная консультация
                         <i data-lucide="arrow-right" class="w-5 h-5"></i>
                     </a>
                 </div>
             </div>
             
-            <div class="relative">
+            <div class="relative" data-aos="zoom-in" data-aos-duration="1200">
                 <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl">
                     <img src="https://picsum.photos/seed/prosthetics/800/800" alt="Prosthetics technology" class="w-full h-full object-cover">
                 </div>
-                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block" data-aos="fade-up" data-aos-delay="400">
                     <div class="flex items-center gap-4">
                         <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600">
                             <i data-lucide="users" class="w-6 h-6"></i>
@@ -91,23 +108,23 @@
     <!-- About Section -->
     <section class="py-20 bg-slate-50 px-4">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">О нашей компании</h2>
                 <div class="w-20 h-1.5 bg-brand-accent mx-auto rounded-full"></div>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover-float" data-aos="fade-up" data-aos-delay="100">
                     <i data-lucide="award" class="w-10 h-10 brand-accent mb-6"></i>
                     <h3 class="text-xl font-bold mb-3">Резидент «Сколково»</h3>
                     <p class="text-slate-600">Разработчики инновационного бионического коленного модуля «Steplife».</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover-float" data-aos="fade-up" data-aos-delay="200">
                     <i data-lucide="users" class="w-10 h-10 brand-accent mb-6"></i>
                     <h3 class="text-xl font-bold mb-3">Опыт и доверие</h3>
                     <p class="text-slate-600">Помогли более 350 пациентам вернуться к полноценной жизни с 2018 года.</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover-float" data-aos="fade-up" data-aos-delay="300">
                     <i data-lucide="globe" class="w-10 h-10 brand-accent mb-6"></i>
                     <h3 class="text-xl font-bold mb-3">География</h3>
                     <p class="text-slate-600">Наши центры: Уральск, Москва, Иркутск, Улан-Удэ, Уфа.</p>
@@ -119,18 +136,18 @@
     <!-- Services -->
     <section class="py-20 px-4">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Наши услуги</h2>
                 <p class="text-slate-500 max-w-2xl mx-auto">Мы предоставляем полный спектр услуг по протезированию и реабилитации.</p>
             </div>
             
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="group p-10 rounded-3xl bg-white border border-slate-100 hover:border-brand-accent transition-all hover:shadow-2xl hover:shadow-blue-50">
+                <div class="group p-10 rounded-3xl bg-white border border-slate-100 hover-float transition-all" data-aos="fade-right">
                     <i data-lucide="settings" class="w-12 h-12 brand-accent mb-4"></i>
                     <h3 class="text-2xl font-bold mb-4 group-hover:brand-accent transition-colors">Протезирование конечностей</h3>
                     <p class="text-slate-600 text-lg leading-relaxed">Индивидуальный подход к каждому пациенту, использование передовых технологий.</p>
                 </div>
-                <div class="group p-10 rounded-3xl bg-white border border-slate-100 hover:border-brand-accent transition-all hover:shadow-2xl hover:shadow-blue-50">
+                <div class="group p-10 rounded-3xl bg-white border border-slate-100 hover-float transition-all" data-aos="fade-left">
                     <i data-lucide="shopping-bag" class="w-12 h-12 brand-accent mb-4"></i>
                     <h3 class="text-2xl font-bold mb-4 group-hover:brand-accent transition-colors">Орто-аптека</h3>
                     <p class="text-slate-600 text-lg leading-relaxed">Широкий ассортимент ортопедических товаров и средств реабилитации.</p>
@@ -142,37 +159,37 @@
     <!-- Steps Section -->
     <section class="py-20 bg-slate-900 text-white px-4 overflow-hidden">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Этапы протезирования</h2>
                 <p class="text-blue-100 opacity-80">Как мы создаем ваш идеальный протез</p>
             </div>
             
             <div class="grid md:grid-cols-5 gap-4">
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 relative">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 relative hover-float" data-aos="flip-left" data-aos-delay="100">
                     <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center font-bold text-lg shadow-lg">1</div>
                     <div class="bg-white p-3 rounded-xl w-fit mb-6"><i data-lucide="stethoscope" class="w-8 h-8 brand-accent"></i></div>
                     <h3 class="font-bold text-lg mb-2">Осмотр и подбор</h3>
                     <p class="text-sm text-blue-100 leading-relaxed">Первичная консультация и индивидуальный подбор комплектующих.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 relative">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 relative hover-float" data-aos="flip-left" data-aos-delay="200">
                     <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center font-bold text-lg shadow-lg">2</div>
                     <div class="bg-white p-3 rounded-xl w-fit mb-6"><i data-lucide="settings" class="w-8 h-8 brand-accent"></i></div>
                     <h3 class="font-bold text-lg mb-2">Гипсовый слепок</h3>
                     <p class="text-sm text-blue-100 leading-relaxed">Изготовление точного слепка (негатив/позитив) вашей конечности.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 relative">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 relative hover-float" data-aos="flip-left" data-aos-delay="300">
                     <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center font-bold text-lg shadow-lg">3</div>
                     <div class="bg-white p-3 rounded-xl w-fit mb-6"><i data-lucide="shield-check" class="w-8 h-8 brand-accent"></i></div>
                     <h3 class="font-bold text-lg mb-2">Примерочная гильза</h3>
                     <p class="text-sm text-blue-100 leading-relaxed">Подгонка для обеспечения максимального комфорта и функциональности.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 relative">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 relative hover-float" data-aos="flip-left" data-aos-delay="400">
                     <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center font-bold text-lg shadow-lg">4</div>
                     <div class="bg-white p-3 rounded-xl w-fit mb-6"><i data-lucide="check-circle-2" class="w-8 h-8 brand-accent"></i></div>
                     <h3 class="font-bold text-lg mb-2">Постоянная гильза</h3>
                     <p class="text-sm text-blue-100 leading-relaxed">Изготовление финального изделия из высокопрочных материалов.</p>
                 </div>
-                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 relative">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/10 relative hover-float" data-aos="flip-left" data-aos-delay="500">
                     <div class="absolute -top-4 -left-4 w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center font-bold text-lg shadow-lg">5</div>
                     <div class="bg-white p-3 rounded-xl w-fit mb-6"><i data-lucide="award" class="w-8 h-8 brand-accent"></i></div>
                     <h3 class="font-bold text-lg mb-2">Облицовка</h3>
@@ -185,14 +202,14 @@
     <!-- Special Offer -->
     <section class="py-24 px-4 bg-white relative overflow-hidden">
         <div class="max-w-7xl mx-auto relative z-10">
-            <div class="bg-white rounded-[2.5rem] shadow-2xl shadow-blue-100 border border-slate-100 overflow-hidden">
+            <div class="bg-white rounded-[2.5rem] shadow-2xl shadow-blue-100 border border-slate-100 overflow-hidden" data-aos="fade-up">
                 <div class="grid lg:grid-cols-2">
                     <div class="p-8 md:p-16">
                         <span class="brand-accent font-bold uppercase tracking-widest text-sm mb-4 block">Спецпредложение для иногородних</span>
                         <h2 class="text-3xl md:text-5xl font-bold mb-8 text-slate-900">Как получить протез <span class="text-green-600">БЕСПЛАТНО</span></h2>
                         
                         <div class="space-y-8">
-                            <div class="flex gap-6">
+                            <div class="flex gap-6" data-aos="fade-right" data-aos-delay="100">
                                 <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center brand-accent">
                                     <i data-lucide="phone" class="w-6 h-6"></i>
                                 </div>
@@ -201,7 +218,7 @@
                                     <p class="text-slate-600">Первичная консультация по телефону для уточнения деталей.</p>
                                 </div>
                             </div>
-                            <div class="flex gap-6">
+                            <div class="flex gap-6" data-aos="fade-right" data-aos-delay="200">
                                 <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center brand-accent">
                                     <i data-lucide="file-text" class="w-6 h-6"></i>
                                 </div>
@@ -210,7 +227,7 @@
                                     <p class="text-slate-600">ЭЦП, Удостоверение личности, ИПР (Индивидуальная программа реабилитации).</p>
                                 </div>
                             </div>
-                            <div class="flex gap-6">
+                            <div class="flex gap-6" data-aos="fade-right" data-aos-delay="300">
                                 <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center brand-accent">
                                     <i data-lucide="plane" class="w-6 h-6"></i>
                                 </div>
@@ -222,7 +239,7 @@
                         </div>
                     </div>
                     
-                    <div class="bg-brand-accent p-8 md:p-16 text-white flex flex-col justify-center">
+                    <div class="bg-brand-accent p-8 md:p-16 text-white flex flex-col justify-center" data-aos="fade-left">
                         <h3 class="text-2xl font-bold mb-8">Что мы обеспечиваем:</h3>
                         <ul class="space-y-6">
                             <li class="flex items-start gap-4">
@@ -247,7 +264,7 @@
     <!-- Form Section -->
     <section id="consultation" class="py-24 px-4 bg-sky-50 relative overflow-hidden">
         <div class="max-w-4xl mx-auto relative z-10">
-            <div class="bg-white rounded-[2.5rem] shadow-2xl shadow-blue-100 border border-slate-100 overflow-hidden p-8 md:p-16">
+            <div class="bg-white rounded-[2.5rem] shadow-2xl shadow-blue-100 border border-slate-100 overflow-hidden p-8 md:p-16" data-aos="zoom-in">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl md:text-5xl font-bold mb-4 text-slate-900">Записаться на консультацию</h2>
                     <p class="text-slate-600 text-lg">Оставьте ваши данные, и наш специалист свяжется с вами в ближайшее время.</p>
@@ -270,7 +287,7 @@
                     </div>
 
                     <div class="pt-4">
-                        <button type="submit" id="submitBtn" class="w-full bg-brand-accent hover:bg-sky-600 text-white px-8 py-5 rounded-2xl font-bold text-xl transition-all shadow-xl shadow-blue-100 flex items-center justify-center gap-3 group">
+                        <button type="submit" id="submitBtn" class="w-full bg-brand-accent hover:bg-sky-600 text-white px-8 py-5 rounded-2xl font-bold text-xl btn-transition shadow-xl shadow-blue-100 flex items-center justify-center gap-3 group">
                             Отправить заявку
                             <i data-lucide="send" class="w-6 h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
                         </button>
@@ -284,16 +301,16 @@
     <!-- Contacts -->
     <section class="py-20 px-4 bg-slate-50">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8">Контакты</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-8" data-aos="fade-right">Контакты</h2>
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="flex gap-4">
+                <div class="flex gap-4" data-aos="fade-up" data-aos-delay="100">
                     <i data-lucide="map-pin" class="brand-accent flex-shrink-0"></i>
                     <div>
                         <p class="font-bold text-lg">Адрес</p>
                         <p class="text-slate-600">г. Уральск, ул. Касыма Аманжолова 57/1</p>
                     </div>
                 </div>
-                <div class="flex gap-4">
+                <div class="flex gap-4" data-aos="fade-up" data-aos-delay="200">
                     <i data-lucide="phone" class="brand-accent flex-shrink-0"></i>
                     <div>
                         <p class="font-bold text-lg">Телефоны</p>
@@ -301,7 +318,7 @@
                         <p class="text-slate-600">8 (705) 447-66-01</p>
                     </div>
                 </div>
-                <div class="flex gap-4">
+                <div class="flex gap-4" data-aos="fade-up" data-aos-delay="300">
                     <i data-lucide="clock" class="brand-accent flex-shrink-0"></i>
                     <div>
                         <p class="font-bold text-lg">Время работы</p>
@@ -337,6 +354,12 @@
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+        
+        // Initialize Animations
+        AOS.init({
+            once: true,
+            offset: 100
+        });
 
         // Form Handling
         const form = document.getElementById('consultationForm');

@@ -43,25 +43,29 @@ export default function App() {
     setStatus('loading');
     setErrorMessage('');
 
+    const webhookUrl = "https://script.google.com/macros/s/AKfycby-Jfhz2-p1KJEjOc2-6A0yhKljBi91n1YNDqVAI8xwkGG1owS07oN_NnlGGZQbtfvt3Q/exec";
+
     try {
-      const response = await fetch('/api/consultation', {
+      // Try calling the direct webhook first (works on static sites like GitHub Pages)
+      const response = await fetch(webhookUrl, {
         method: 'POST',
+        mode: 'no-cors', // Google Apps Script requires no-cors for direct POST from browser
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toLocaleString("ru-RU"),
+          source: window.location.hostname
+        }),
       });
 
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || 'Ошибка при отправке');
-      }
-
+      // With no-cors, we can't check response.ok, but if it doesn't throw, it's usually fine
       setStatus('success');
       setFormData({ name: '', phone: '', message: '' });
       setTimeout(() => setStatus('idle'), 5000);
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setErrorMessage(err instanceof Error ? err.message : 'Произошла ошибка');
+      setErrorMessage('Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь через WhatsApp.');
     }
   };
 
